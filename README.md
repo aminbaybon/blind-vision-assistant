@@ -1,68 +1,68 @@
-# دستیار بینایی
+# Blind vision assistant
 
-نمونهٔ آزمایشی یک اپ اندروید برای کمک به افراد کم‌بینا. این مخزن حاصل حدود **پنج تا شش ساعت** کار است: از یک نمونهٔ پایتون روی ویدیو تا یک اپ که روی خود گوشی، بدون اینترنت، فارسی حرف می‌زند.
+An experimental Android app for people with low vision. This repository is about **five to six hours** of work: a Python video prototype, then an app that runs on the phone, offline, and speaks Persian.
 
-نسخهٔ فعلی اپ: **0.4.1**
+Current app version: **0.4.1**
 
-این برنامه جایگزین عصای سفید یا هیچ وسیلهٔ کمک‌حرکتی دیگری نیست. فاصله را به متر نمی‌گوید و مسیر را امن اعلام نمی‌کند.
+This app does not replace a white cane or any other mobility aid. It does not report distance in meters, and it does not say that a path is safe.
 
-## حاصل این چند ساعت
+## What those hours produced
 
-اپ دوربین عقب را می‌گیرد و سه کار را روی خود دستگاه انجام می‌دهد:
+The app uses the rear camera and does three things on the device:
 
-1. شیءهای آشنای تصویر را تشخیص می‌دهد (انسان، خودرو، صندلی و بقیهٔ کلاس‌های COCO).
-2. عمق را فقط به‌صورت نسبی می‌سنجد: چیزی در همان فریم نزدیک‌تر به نظر می‌رسد یا دورتر. این عدد متر نیست.
-3. اگر چیزی جلوی تصویر یا در چپ و راست، نزدیک به نظر برسد، یک جملهٔ فارسی محافظه‌کارانه می‌گوید. مثلاً: «مانعی در قسمت روبه‌روی تصویر دیده می‌شود. فاصله دقیق مانع مشخص نیست.» اگر شیء مشخصی نباشد، سکوت می‌کند. سکوت به معنی باز بودن مسیر نیست.
+1. It detects familiar objects (person, car, chair, and the rest of the COCO classes).
+2. It estimates depth only relative to the same frame: something looks nearer or farther. That value is not meters.
+3. If something in front, or to the left or right, looks close, it speaks one conservative Persian sentence. For example: «مانعی در قسمت روبه‌روی تصویر دیده می‌شود. فاصله دقیق مانع مشخص نیست.» (“An obstacle is visible in the front of the image. The exact distance is unknown.”) If nothing clear is detected, it stays silent. Silence does not mean the way is clear.
 
-رابط کاربری فارسی است، فونت وزیر دارد، و گفتار پیش‌فرض با صدای فارسیِ داخل خود برنامه پخش می‌شود.
+The interface is Persian, the typeface is Vazir, and the default voice is the Persian voice embedded in the app.
 
-فایل نصب آزمایشی (debug) در [Releases](https://github.com/aminbaybon/blind-vision-assistant/releases) است. این امضای انتشار فروشگاه نیست. اگر نسخهٔ قبلی روی گوشی است، اول آن را پاک کنید.
+The experimental debug build is on [Releases](https://github.com/aminbaybon/blind-vision-assistant/releases). It is not a store-signed release. Uninstall any older build before installing this one.
 
-## مشخصات فنی
+## Technical details
 
-| بخش | انتخاب | جزئیات |
+| Part | Choice | Details |
 | --- | --- | --- |
-| پلتفرم | اندروید | Kotlin، ‏minSdk 26 (اندروید ۸)، ‏target/compile 35، نسخهٔ اپ 0.4.1 |
-| دوربین | CameraX 1.4.1 | فقط دوربین RGB عقب. پیش‌نمایش هدف 640×480 |
-| اجرا | CPU | ONNX Runtime اندروید 1.31.1. پردازندهٔ گرافیکی، NPU، ‏ARCore، لای‌دار و حسگر عمق لازم نیست |
-| شبکه | ندارد | استنتاج آفلاین است. مجوز اینترنت از مانیفست نهایی برداشته شده |
-| تشخیص شیء | YOLO26 Nano | ONNX، دقت FP32، حدود ۹٫۳ مگابایت، ورودی `images` با شکل `[1,3,416,416]`، خروجی `[1,84,3549]`، ۸۰ کلاس COCO |
-| عمق | MiDaS v2.1 Small | ONNX، دقت FP32، حدود ۶۴ مگابایت، ورودی ۲۵۶×۲۵۶، خروجی نقشهٔ ۲۵۶×۲۵۶. مقدار بزرگ‌تر یعنی نزدیک‌تر در همان فریم، نه متر |
-| گفتار | Piper `fa_IR-gyro-medium` | حدود ۶۰ مگابایت، از راه sherpa-onnx 1.13.8. واج‌نگاری با دادهٔ espeak-ng |
-| زمان‌بندی | تک‌نخی | اگر تحلیل قبلی تمام نشده یا از فریم قبلی کمتر از ۲۵۰ میلی‌ثانیه گذشته باشد، فریم دور ریخته می‌شود. عمق حداکثر هر ۸۰۰ میلی‌ثانیه یک‌بار. همان جمله زودتر از ۱۸ ثانیه تکرار نمی‌شود |
-| معماری بومی | ARM | ‏`arm64-v8a` و `armeabi-v7a`. کتابخانهٔ شبیه‌ساز x86 داخل APK نیست |
-| حجم APK آزمایشی | ۲۶۹٬۶۰۵٬۷۱۷ بایت | بخش اصلی‌اش همین سه مدل و کتابخانه‌های بومی است |
+| Platform | Android | Kotlin, minSdk 26 (Android 8), target/compile 35, app version 0.4.1 |
+| Camera | CameraX 1.4.1 | Rear RGB camera only. Preview target 640×480 |
+| Runtime | CPU | ONNX Runtime Android 1.31.1. No GPU, NPU, ARCore, LiDAR, or depth sensor required |
+| Network | None | Inference is offline. The internet permission is removed from the merged manifest |
+| Objects | YOLO26 Nano | ONNX, FP32, about 9.3 MB, input `images` shaped `[1,3,416,416]`, output `[1,84,3549]`, 80 COCO classes |
+| Depth | MiDaS v2.1 Small | ONNX, FP32, about 64 MB, 256×256 input, 256×256 map. A larger value means nearer in that frame, not meters |
+| Speech | Piper `fa_IR-gyro-medium` | About 60 MB, through sherpa-onnx 1.13.8. Phonemizer data from espeak-ng |
+| Scheduling | One thread | A frame is dropped if the previous pass is still running, or if less than 250 ms has passed. Depth runs at most once every 800 ms. The same sentence is not repeated before 18 seconds |
+| Native ABIs | ARM | `arm64-v8a` and `armeabi-v7a`. x86 emulator libraries are not in the APK |
+| Debug APK size | 269,605,717 bytes | Most of that is the three models and the native libraries |
 
-نمونهٔ پایتون (`main.py`) جدا از اپ است: YOLO26n را روی یک ویدیو اجرا می‌کند و توضیح انگلیسی می‌سازد. تخمین متر در آن اسکریپت یک برآورد هندسی از سطح زمین است و اپ اندروید آن جمله را نمی‌گوید.
+The Python sample (`main.py`) is separate from the app. It runs YOLO26n on a video and writes English descriptions. Its meter figure is a ground-plane geometric estimate. The Android app does not speak that sentence.
 
-## چه چیزی هنوز لازم است
+## What still needs work
 
-این نسخه برای نشان دادن مسیر فنی است، نه یک محصول ارزیابی‌شده.
+This version shows a technical path. It is not a validated product.
 
-- عمق MiDaS روی این گوشی با متر نواری سنجیده نشده. تا وقتی دادهٔ واقعی نباشد، گفتن «دو متر» نادرست است و برنامه عمداً این کار را نمی‌کند.
-- سرعت و حافظه روی گوشی ۳ گیگابایتی اندازه گرفته نشده. هدف طراحی گوشی میان‌رده است، ولی عدد FPS و RAM روی دستگاه ثبت نشده.
-- مدل‌ها FP32 هستند. کوچک‌کردن به INT8 فقط وقتی معنی دارد که دقت خروجی روی تصویر واقعی افت نکند.
-- دیوار، جدول، سطح پیاده‌رو و مسیر قابل‌عبور کلاس جداگانه‌ای ندارند. جملهٔ «مانع روبه‌رو» یک سطح نزدیک در مرکز تصویر است، نه اسم یک شیء.
-- تشخیص پله در این نسخه نیست. با دوربین RGB معمولی و بدون دادهٔ برچسب‌خورده قابل‌اعتماد نبود و از اپ حذف شده.
-- برنامه جهت حرکت («به چپ بپیچ») و امنیت مسیر را نمی‌گوید و نباید بگوید، تا وقتی فضای خالی واقعاً سنجیده شود.
-- آزمون میدانی با کاربران کم‌بینا، هدف‌های لمسی درشت‌تر، و یک بیلد release امضاشده برای نصب ساده هنوز انجام نشده.
-- APK فعلی debug است و از فروشگاه نصب نمی‌شود.
+- MiDaS depth on this phone has not been checked against a tape measure. Until there is real data, saying “two meters” would be wrong, so the app does not say it.
+- Speed and memory have not been measured on a 3 GB phone. The design target is a mid-range phone, but device FPS and RAM are not recorded.
+- The models are FP32. INT8 is worth doing only after the output is checked on real images.
+- Wall, curb, sidewalk, and walkable path are not separate classes. The “front obstacle” sentence means a near surface in the center of the image, not the name of an object.
+- Stair detection is not in this version. It was not reliable from an ordinary RGB camera without labeled data, so it was removed.
+- The app does not give a turn (“turn left”) or call a path safe, and it should not, until free space is actually measured.
+- A field test with low-vision users, larger touch targets, and a signed release build are still undone.
+- The current APK is a debug build and is not installed from a store.
 
-## ساخت اپ
+## Build the app
 
-JDK 17، Android SDK و Gradle 8.11.1 لازم است. از پوشهٔ `android`:
+JDK 17, the Android SDK, and Gradle 8.11.1 are required. From the `android` directory:
 
 ```bat
 gradle assembleDebug
 ```
 
-خروجی:
+Output:
 
 `android/app/build/outputs/apk/debug/app-debug.apk`
 
-## نمونهٔ پایتون
+## Python sample
 
-Python 3.10 یا جدیدتر:
+Python 3.10 or newer:
 
 ```bat
 py -3 -m venv .venv
@@ -70,17 +70,17 @@ py -3 -m venv .venv
 .venv\Scripts\python main.py
 ```
 
-ویدیوی ورودی همراه این مخزن نیست.
+The input video is not included in this repository.
 
-## مجوز قطعه‌ها
+## Component licenses
 
-کد این نمونه آزمایشی است. وزن هر مدل مجوز خودش را دارد و با بقیه یکی نیست:
+This sample code is experimental. Each model weight has its own license:
 
-| قطعه | مجوز |
+| Component | License |
 | --- | --- |
 | YOLO26n (Ultralytics) | AGPL-3.0 |
 | MiDaS v2.1 small | MIT |
 | sherpa-onnx | Apache-2.0 |
-| Piper، صدای `fa_IR-gyro-medium` | مجوز همان انتشار k2-fsa |
+| Piper voice `fa_IR-gyro-medium` | License of the k2-fsa release |
 | espeak-ng-data | GPL-3.0 |
-| فونت وزیر | SIL Open Font License |
+| Vazir font | SIL Open Font License |
