@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">دستیار بینایی</string>
+    <string name="settings_title">تنظیمات</string>
+    <string name="start_camera">شروع دوربین</string>
+    <string name="stop_camera">توقف دوربین</string>
+    <string name="camera_idle_label">دوربین</string>
+    <string name="camera_live_label">توقف</string>
+    <string name="voice_on">راهنمای صوتی روشن</string>
+    <string name="voice_off">راهنمای صوتی خاموش</string>
+    <string name="voice_live_label">صدا روشن</string>
+    <string name="voice_muted_label">صدا خاموش</string>
+    <string name="describe">توضیح محیط اطراف</string>
+    <string name="open_settings">تنظیمات</string>
+    <string name="preview_description">پیش‌نمایش دوربین عقب</string>
+    <string name="status_starting">در حال آماده‌سازی دوربین و مدل تشخیص.</string>
+    <string name="status_ready">دوربین آماده است. راهنمای صوتی اجسام مهم را می‌گوید.</string>
+    <string name="status_idle">شیء مشخصی برای اعلام دیده نمی‌شود.</string>
+    <string name="status_camera_denied">اجازه دوربین داده نشد. بدون دوربین تشخیص ممکن نیست.</string>
+    <string name="status_camera_error">دوربین باز نشد.</string>
+    <string name="model_failed">مدل تشخیص بارگذاری نشد. دوربین همچنان باز است، اما تشخیص غیرفعال است.</string>
+    <string name="tts_missing">صدای فارسی داخل برنامه باز نشد. گفتار خود گوشی استفاده می‌شود.</string>
+    <string name="voice_ready">صدای فارسی آماده است.</string>
+    <string name="disclaimer">این برنامه یک نمونه آزمایشی است و جایگزین عصای سفید یا سایر وسایل کمک‌حرکتی نیست. فاصله را به متر نمی‌گوید و مسیر را امن اعلام نمی‌کند.</string>
+    <string name="disclaimer_banner">نمونه آزمایشی است و جایگزین عصای سفید نیست.</string>
+    <string name="settings_hint">تشخیص محافظه‌کارانه‌تر، یا تکرار کمتر.</string>
+    <string name="disclaimer_ok">متوجه شدم</string>
+    <string name="confidence_label">حد اطمینان تشخیص</string>
+    <string name="cooldown_label">فاصله تکرار هشدار، به ثانیه</string>
+    <string name="save_settings">ذخیره تنظیمات</string>
+    <string name="settings_saved">تنظیمات ذخیره شد.</string>
+</resources>

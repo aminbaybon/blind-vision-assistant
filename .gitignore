@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+outputs/
+
+android/.gradle/
+android/**/build/
+android/local.properties
+android/.idea/
+*.iml
+*.apk
+
+# یادداشت‌های داخلی که با نسخهٔ منتشرشده یکی نیستند
+/CURRENT_AI_ARCHITECTURE_AUDIT.md
+/PERCEPTION_V2_IMPLEMENTATION.md
+/PERCEPTION_V3_EVALUATION.md
+/tests/dataset_manifest.json
+/tests/output/

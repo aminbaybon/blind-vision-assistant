@@ -1,0 +1,4 @@
+# Python 3.10 or newer. ultralytics installs a matching PyTorch build.
+ultralytics>=8.4.0
+opencv-python>=4.8.0
+numpy>=1.24.0

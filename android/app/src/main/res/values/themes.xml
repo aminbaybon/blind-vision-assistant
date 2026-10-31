@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.BlindVision" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/amber</item>
+        <item name="colorOnPrimary">@color/amber_ink</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+        <item name="android:textViewStyle">@style/Widget.BlindVision.TextView</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.BlindVision</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.BlindVision</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.BlindVision</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.BlindVision.Title</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.BlindVision.Title</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.BlindVision.Dialog</item>
+    </style>
+
+    <style name="TextAppearance.BlindVision" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+    </style>
+
+    <style name="TextAppearance.BlindVision.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+    </style>
+
+    <style name="Widget.BlindVision.TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+    </style>
+
+    <style name="ThemeOverlay.BlindVision.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.BlindVision</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.BlindVision.Title</item>
+    </style>
+
+    <style name="Widget.BlindVision.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">68dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="backgroundTint">@color/amber</item>
+        <item name="android:textColor">@color/amber_ink</item>
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+    </style>
+
+    <style name="Widget.BlindVision.Button.Secondary" parent="Widget.Material3.Button">
+        <item name="android:minHeight">60dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/surface_high</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+    </style>
+
+    <style name="Widget.BlindVision.Button.Quiet" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textColor">@color/amber</item>
+        <item name="android:fontFamily">@font/vazir</item>
+        <item name="fontFamily">@font/vazir</item>
+    </style>
+</resources>

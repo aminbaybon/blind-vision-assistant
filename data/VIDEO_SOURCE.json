@@ -1,0 +1,9 @@
+{
+  "path": "data/test_street.mp4",
+  "url": "https://raw.githubusercontent.com/aparsoft/yolo-streamlit-detection-tracking/master/videos/pedestrians_summer_street.mp4",
+  "title": "Pedestrians on a summer street",
+  "creator": "Pexels contributor K, via aparsoft/yolo-streamlit-detection-tracking",
+  "license_name": "Pexels License (free to use and modify; attribution not required)",
+  "license_url": "https://www.pexels.com/license/",
+  "original_url": "https://www.pexels.com/video/pedestrians-cross-busy-city-street-on-summer-day-38045690/"
+}
